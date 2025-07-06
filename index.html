@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Ile jesteśmy razem ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fce4ec;
+      color: #880e4f;
+      margin-top: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    #timer {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ile jesteśmy razem 💑</h1>
+  <div id="timer"></div>
+
+  <script>
+    const startDate = new Date("2025-05-05T00:00:00");
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor(diff / (1000 * 60));
+      const seconds = Math.floor(diff / 1000);
+
+      document.getElementById("timer").innerHTML = `
+        Jesteśmy razem od:<br>
+        🗓️ ${days} dni<br>
+        ⏳ czyli ${hours} godzin<br>
+        🕰️ albo ${minutes} minut<br>
+        ⏱️ lub ${seconds} sekund
+      `;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+</body>
+</html>
